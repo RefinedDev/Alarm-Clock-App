@@ -111,6 +111,7 @@
     </Compile>
     <Content Include=".gitignore" />
     <Content Include="LICENSE.txt" />
+    <None Include="README.md" />
     <None Include="Resources\cross.ico" />
     <None Include="Resources\ACA.ico" />
     <None Include="Resources\Alarm.wav" />

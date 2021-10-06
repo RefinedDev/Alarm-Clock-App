@@ -17,11 +17,11 @@ namespace Alarm_Clock_App
         public string NameOfTimer { get; set; }
         public Panel TimerFrame { get; set; }
 
-        private Label TimerLable { get; set; }
-        private Button ToggleButton { get; set; }
-        private Button ResetButton { get; set; }
-        private Timer Ticker { get; set; }
-        private Label Name { get; set; }
+        private Label TimerLable;
+        private Button ToggleButton;
+        private Button ResetButton;
+        private Timer Ticker;
+        private Label Name;
 
         public string GetFormattedTime
         {
