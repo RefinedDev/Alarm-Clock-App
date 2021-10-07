@@ -18,6 +18,7 @@ namespace Alarm_Clock_App
         private Panel blueBorder;
         private Form CurrentTab;
         private static SoundPlayer alarm = new SoundPlayer(Properties.Resources.Alarm);
+        private static bool isPlaying = false;
 
         // TABS
         private Form Alarm = new Tabs.Alarm();
@@ -41,12 +42,17 @@ namespace Alarm_Clock_App
             AC.Visible = true;
         }
 
-        public static void MakeNotification(string message,string title = "Alarm Clock App")
+        public static void MakeNotification(string message, string title = "Alarm Clock App")
         {
-            AC.BalloonTipTitle = title;
-            AC.BalloonTipText = message;
-            AC.ShowBalloonTip(2000);
-            alarm.Play();
+            if (! isPlaying)
+            {
+                AC.BalloonTipTitle = title;
+                AC.BalloonTipText = message;
+                AC.ShowBalloonTip(2000);
+                alarm.Play();
+                isPlaying = true;
+            }
+            
         }
 
         private void ClickOnButton(object sender)
@@ -111,6 +117,7 @@ namespace Alarm_Clock_App
         private void AlarmClockApp_BalloonTipClosed(object sender, EventArgs e)
         {
             alarm.Stop();
+            isPlaying = false;
         }
 
         private void AlarmClockApp_MouseDown(object sender, MouseEventArgs e)
@@ -157,6 +164,8 @@ namespace Alarm_Clock_App
             this.ShowInTaskbar = true;
             this.Show();
             minimizeToTrayToolStripMenuItem.Text = "Minimize To Tray";
+            alarm.Stop();
+            isPlaying = false;
         }
     }
 }

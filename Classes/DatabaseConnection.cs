@@ -18,7 +18,7 @@ namespace Alarm_Clock_App
             {
                 cnn.Execute("CREATE TABLE IF NOT EXISTS TimerData (TS INTEGER NOT NULL, ID TEXT NOT NULL UNIQUE PRIMARY KEY, OGTime INTEGER NOT NULL, NameOfTimer TEXT NOT NULL)");
                 cnn.Execute("CREATE TABLE IF NOT EXISTS Settings (DeleteTimersOnceDone TEXT NOT NULL, DeleteAlarmsOnceDone TEXT NOT NULL, amog INTEGER NOT NULL UNIQUE)");
-                cnn.Execute("CREATE TABLE IF NOT EXISTS AlarmData (TS INTEGER NOT NULL, ID TEXT NOT NULL UNIQUE PRIMARY KEY, IsOn TEXT NOT NULL, NameOfAlarm TEXT NOT NULL)");
+                cnn.Execute("CREATE TABLE IF NOT EXISTS AlarmData (TS INTEGER NOT NULL, NameOfAlarm TEXT NOT NULL, IsOn TEXT NOT NULL, ID TEXT NOT NULL UNIQUE PRIMARY KEY)");
             }
         }
 

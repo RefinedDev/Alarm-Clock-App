@@ -251,21 +251,25 @@ namespace Alarm_Clock_App
             this.qUITToolStripMenuItem,
             this.minimizeToTrayToolStripMenuItem});
             this.TrayList.Name = "TrayList";
-            this.TrayList.Size = new System.Drawing.Size(184, 52);
+            this.TrayList.Size = new System.Drawing.Size(211, 80);
             // 
             // qUITToolStripMenuItem
             // 
+            this.qUITToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.qUITToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.qUITToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.qUITToolStripMenuItem.Name = "qUITToolStripMenuItem";
-            this.qUITToolStripMenuItem.Size = new System.Drawing.Size(183, 24);
+            this.qUITToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.qUITToolStripMenuItem.Text = "Close Application";
             this.qUITToolStripMenuItem.Click += new System.EventHandler(this.qUITToolStripMenuItem_Click);
             // 
             // minimizeToTrayToolStripMenuItem
             // 
+            this.minimizeToTrayToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.minimizeToTrayToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.minimizeToTrayToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.minimizeToTrayToolStripMenuItem.Name = "minimizeToTrayToolStripMenuItem";
-            this.minimizeToTrayToolStripMenuItem.Size = new System.Drawing.Size(183, 24);
+            this.minimizeToTrayToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.minimizeToTrayToolStripMenuItem.Text = "Minimize To Tray";
             this.minimizeToTrayToolStripMenuItem.Click += new System.EventHandler(this.minimizeToTrayToolStripMenuItem_Click);
             // 
