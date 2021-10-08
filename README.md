@@ -13,4 +13,5 @@ If you want the app to work properly, please minimize the app to tray by right c
 If you just click the Close button on top, the app will close.
 
 # Preview 
-https://user-images.githubusercontent.com/74603055/136218860-85f49f67-b6c7-48dc-ba38-2bd9df4ebb04.mp4
+https://user-images.githubusercontent.com/74603055/136512211-c966fc15-78c2-4d41-9fb1-4615c10d5c7b.mp4
+
