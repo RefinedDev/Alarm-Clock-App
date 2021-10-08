@@ -65,6 +65,7 @@
     <Compile Include="Classes\ACATimer.cs" />
     <Compile Include="Classes\DatabaseConnection.cs" />
     <Compile Include="Classes\VersionChecker.cs" />
+    <Compile Include="Classes\WorldClock.cs" />
     <Compile Include="Loading.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,8 +110,17 @@
     <Compile Include="Tabs\Timer.Designer.cs">
       <DependentUpon>Timer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tabs\WorldClock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tabs\WorldClock.Designer.cs">
+      <DependentUpon>WorldClock.cs</DependentUpon>
+    </Compile>
     <Content Include=".gitignore" />
     <Content Include="LICENSE.txt" />
+    <EmbeddedResource Include="Tabs\WorldClock.resx">
+      <DependentUpon>WorldClock.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="README.md" />
     <None Include="Resources\cross.ico" />
     <None Include="Resources\ACA.ico" />

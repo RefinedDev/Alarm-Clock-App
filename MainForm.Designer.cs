@@ -32,6 +32,7 @@ namespace Alarm_Clock_App
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.pnlIndex = new System.Windows.Forms.Panel();
+            this.btnWorldClock = new FontAwesome.Sharp.IconButton();
             this.btnSettings = new FontAwesome.Sharp.IconButton();
             this.label3 = new System.Windows.Forms.Label();
             this.btnStopwatch = new FontAwesome.Sharp.IconButton();
@@ -56,6 +57,7 @@ namespace Alarm_Clock_App
             // pnlIndex
             // 
             this.pnlIndex.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
+            this.pnlIndex.Controls.Add(this.btnWorldClock);
             this.pnlIndex.Controls.Add(this.btnSettings);
             this.pnlIndex.Controls.Add(this.label3);
             this.pnlIndex.Controls.Add(this.btnStopwatch);
@@ -67,6 +69,28 @@ namespace Alarm_Clock_App
             this.pnlIndex.Name = "pnlIndex";
             this.pnlIndex.Size = new System.Drawing.Size(305, 755);
             this.pnlIndex.TabIndex = 0;
+            // 
+            // btnWorldClock
+            // 
+            this.btnWorldClock.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnWorldClock.FlatAppearance.BorderSize = 0;
+            this.btnWorldClock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWorldClock.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
+            this.btnWorldClock.ForeColor = System.Drawing.Color.White;
+            this.btnWorldClock.IconChar = FontAwesome.Sharp.IconChar.Globe;
+            this.btnWorldClock.IconColor = System.Drawing.Color.White;
+            this.btnWorldClock.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnWorldClock.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnWorldClock.Location = new System.Drawing.Point(0, 317);
+            this.btnWorldClock.Name = "btnWorldClock";
+            this.btnWorldClock.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnWorldClock.Size = new System.Drawing.Size(305, 100);
+            this.btnWorldClock.TabIndex = 7;
+            this.btnWorldClock.Text = "Worldclock";
+            this.btnWorldClock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnWorldClock.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnWorldClock.UseVisualStyleBackColor = true;
+            this.btnWorldClock.Click += new System.EventHandler(this.btnWorldClock_Click);
             // 
             // btnSettings
             // 
@@ -316,5 +340,6 @@ namespace Alarm_Clock_App
         private System.Windows.Forms.ContextMenuStrip TrayList;
         private System.Windows.Forms.ToolStripMenuItem qUITToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem minimizeToTrayToolStripMenuItem;
+        private FontAwesome.Sharp.IconButton btnWorldClock;
     }
 }

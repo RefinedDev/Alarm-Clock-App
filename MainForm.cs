@@ -25,7 +25,7 @@ namespace Alarm_Clock_App
         private Form Settings = new Tabs.Settings();
         private Form Stopwatch = new Tabs.Stopwatch();
         private Form Timer = new Tabs.Timer();
-
+        private Form WorldClock = new Tabs.WorldClock();
         public static NotifyIcon AC { get; set; }
         public Main()
         {
@@ -127,6 +127,7 @@ namespace Alarm_Clock_App
                 this.WindowState = FormWindowState.Maximized;
                 this.ShowInTaskbar = true;
                 this.Show();
+                minimizeToTrayToolStripMenuItem.Text = "Minimize To Tray";
             }
         }
 
@@ -166,6 +167,12 @@ namespace Alarm_Clock_App
             minimizeToTrayToolStripMenuItem.Text = "Minimize To Tray";
             alarm.Stop();
             isPlaying = false;
+        }
+
+        private void btnWorldClock_Click(object sender, EventArgs e)
+        {
+            ClickOnButton(sender);
+            OpenFrame(WorldClock);
         }
     }
 }
