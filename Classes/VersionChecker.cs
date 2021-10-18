@@ -9,7 +9,7 @@ namespace Alarm_Clock_App.Classes
 
     public class VersionChecker
     {
-        public static readonly double currentVersion = 0.3;
+        public static readonly double currentVersion = 0.4;
         private static readonly string URL = "https://api.github.com/repos/RefinedDev/Alarm-Clock-App/releases/latest";
         private static readonly string openURL = "https://github.com/RefinedDev/Alarm-Clock-App/releases";
 

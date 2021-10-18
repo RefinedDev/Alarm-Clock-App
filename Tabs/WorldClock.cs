@@ -14,9 +14,12 @@ namespace Alarm_Clock_App.Tabs
 {
     public partial class WorldClock : Form
     {
+        public static FlowLayoutPanel rpe;
         public WorldClock()
         {
             InitializeComponent();
+            rpe = recentPlaceholder;
+            loadRecents();
         }
 
         private void setLocalTime()
@@ -24,6 +27,23 @@ namespace Alarm_Clock_App.Tabs
             result.Text = string.Format("Local Time: {0} {1}", 
                 DateTime.Now.ToString("hh:mm"),
                 DateTime.Now.ToString("tt", CultureInfo.InvariantCulture).ToLower());
+        }
+
+        public static void loadRecents()
+        {
+            rpe.Controls.Clear();
+
+            foreach (WorldClockClass v in DatabaseConnection.LoadWorldClockData())
+            {
+                Label lbl = new Label();
+                lbl.AutoSize = true;
+                lbl.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Regular, GraphicsUnit.Point, 0);
+                lbl.ForeColor = SystemColors.ButtonHighlight;
+                lbl.Padding = new Padding(30, 30, 0, 0);
+                WorldClockClass.GetTimeOfPlace(v.Place, lbl, true);
+
+                rpe.Controls.Add(lbl);
+            }
         }
 
         private void WorldClock_Load(object sender, EventArgs e)
@@ -39,7 +59,7 @@ namespace Alarm_Clock_App.Tabs
                 return;
             }
 
-            WorldClockClass.GetTimeOfPlace(inputBox.Text, result, inputBox);
+            WorldClockClass.GetTimeOfPlace(inputBox.Text, result);
         }
     }
 }

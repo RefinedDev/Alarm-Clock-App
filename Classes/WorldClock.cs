@@ -11,7 +11,10 @@ namespace Alarm_Clock_App
 {
     public class WorldClockClass
     {
-        public async static void GetTimeOfPlace(string place, Label exitbox, TextBox Input)
+        public string Place { get; set; }
+        public string ID { get; set; }
+
+        public async static void GetTimeOfPlace(string place, Label exitbox, bool isRecent = false)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -30,7 +33,16 @@ namespace Alarm_Clock_App
                 }
                 else
                 {
-                    exitbox.Text = string.Format("Time in {0}: {1}", Input.Text, m.ToString());
+                    exitbox.Text = string.Format("Time in {0}: {1}", place, m.ToString());
+
+                    if (!isRecent)
+                    {
+                        WorldClockClass toSave = new WorldClockClass();
+                        toSave.Place = place;
+                        DatabaseConnection.SaveWorldClockItem(toSave);
+                        Tabs.WorldClock.loadRecents();
+                    }
+                    
                 }
             }
         }

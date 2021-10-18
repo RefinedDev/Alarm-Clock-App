@@ -12,13 +12,14 @@ namespace Alarm_Clock_App
 {
     public class DatabaseConnection
     {
-        public static void Setup()
+        public DatabaseConnection()
         {
             using (IDbConnection cnn = new SQLiteConnection(ConfigurationManager.ConnectionStrings["Database"].ConnectionString))
             {
                 cnn.Execute("CREATE TABLE IF NOT EXISTS TimerData (TS INTEGER NOT NULL, ID TEXT NOT NULL UNIQUE PRIMARY KEY, OGTime INTEGER NOT NULL, NameOfTimer TEXT NOT NULL)");
                 cnn.Execute("CREATE TABLE IF NOT EXISTS Settings (DeleteTimersOnceDone TEXT NOT NULL, DeleteAlarmsOnceDone TEXT NOT NULL, amog INTEGER NOT NULL UNIQUE)");
                 cnn.Execute("CREATE TABLE IF NOT EXISTS AlarmData (TS INTEGER NOT NULL, NameOfAlarm TEXT NOT NULL, IsOn TEXT NOT NULL, ID TEXT NOT NULL UNIQUE PRIMARY KEY)");
+                cnn.Execute("CREATE TABLE IF NOT EXISTS WorldClockData (Place TEXT NOT NULL, ID INTEGER UNIQUE PRIMARY KEY AUTOINCREMENT)");
             }
         }
 
@@ -121,5 +122,37 @@ namespace Alarm_Clock_App
                 cnn.Execute(string.Format("UPDATE Settings SET {0} = {1} WHERE amog = 1", columnName, value), set);
             }
         }
+
+        // WORLD CLOCK
+        public static List<WorldClockClass> LoadWorldClockData()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(ConfigurationManager.ConnectionStrings["Database"].ConnectionString))
+            {
+                var data = cnn.Query<WorldClockClass>("SELECT * FROM WorldClockData ORDER BY ID DESC", new DynamicParameters());
+
+                return data.ToList();
+            }
+        }
+
+        public static void SaveWorldClockItem(WorldClockClass w)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(ConfigurationManager.ConnectionStrings["Database"].ConnectionString))
+            {
+                // SET
+                cnn.Execute(string.Format("INSERT INTO WorldClockData (Place) VALUES ('{0}')", w.Place));
+
+                // GET DATA FIRST AND DELETE IF TOO MUCH DATA
+                List<WorldClockClass> data = cnn.Query<WorldClockClass>("SELECT * FROM WorldClockData ORDER BY ID ASC", new DynamicParameters()).ToList();
+
+                if (data.Count > 7)
+                {
+                    for (int i = 0; i < data.Count - 7; i++)
+                    {
+                        cnn.Execute("DELETE FROM WorldClockData WHERE ID = @ID", data[i]);
+                    }
+                }
+            }
+        }
+
     }
 }

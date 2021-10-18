@@ -14,7 +14,7 @@ namespace Alarm_Clock_App
         [STAThread]
         static void Main()
         {
-            DatabaseConnection.Setup();
+            new DatabaseConnection();
             Classes.VersionChecker.Check(Classes.VersionChecker.currentVersion);
             
             Application.EnableVisualStyles();

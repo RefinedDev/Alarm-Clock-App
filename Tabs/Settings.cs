@@ -34,5 +34,10 @@ namespace Alarm_Clock_App.Tabs
             res.DeleteAlarmsOnceDone = DAAOD.Checked.ToString();
             DatabaseConnection.SaveSettingsData(res, "DeleteAlarmsOnceDone", "@DeleteAlarmsOnceDone");
         }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://twitter.com/OHrefineddev");
+        }
     }
 }

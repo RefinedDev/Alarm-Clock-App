@@ -33,6 +33,8 @@ namespace Alarm_Clock_App.Tabs
             this.result = new System.Windows.Forms.Label();
             this.buttonsHolder = new System.Windows.Forms.Panel();
             this.btnSearch = new FontAwesome.Sharp.IconButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.recentPlaceholder = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonsHolder.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,12 +55,12 @@ namespace Alarm_Clock_App.Tabs
             // 
             this.result.AutoSize = true;
             this.result.Dock = System.Windows.Forms.DockStyle.Top;
-            this.result.Font = new System.Drawing.Font("Lucida Sans Unicode", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.result.Font = new System.Drawing.Font("Lucida Sans Unicode", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.result.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.result.Location = new System.Drawing.Point(0, 110);
             this.result.Name = "result";
             this.result.Padding = new System.Windows.Forms.Padding(0, 50, 0, 0);
-            this.result.Size = new System.Drawing.Size(426, 131);
+            this.result.Size = new System.Drawing.Size(322, 111);
             this.result.TabIndex = 1;
             this.result.Text = "Local Time: ";
             // 
@@ -93,12 +95,36 @@ namespace Alarm_Clock_App.Tabs
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Lucida Sans Unicode", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(0, 221);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(0, 50, 0, 0);
+            this.label1.Size = new System.Drawing.Size(436, 111);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Recent Searches:";
+            // 
+            // recentPlaceholder
+            // 
+            this.recentPlaceholder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.recentPlaceholder.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.recentPlaceholder.Location = new System.Drawing.Point(0, 332);
+            this.recentPlaceholder.Name = "recentPlaceholder";
+            this.recentPlaceholder.Size = new System.Drawing.Size(1194, 259);
+            this.recentPlaceholder.TabIndex = 5;
+            // 
             // WorldClock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.ClientSize = new System.Drawing.Size(1194, 672);
+            this.Controls.Add(this.recentPlaceholder);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonsHolder);
             this.Controls.Add(this.result);
             this.Controls.Add(this.inputBox);
@@ -118,5 +144,7 @@ namespace Alarm_Clock_App.Tabs
         private System.Windows.Forms.Label result;
         private System.Windows.Forms.Panel buttonsHolder;
         private FontAwesome.Sharp.IconButton btnSearch;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.FlowLayoutPanel recentPlaceholder;
     }
 }
